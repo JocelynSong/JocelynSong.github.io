@@ -1,108 +1,193 @@
-/* latin-ext */
-@font-face {
-  font-family: 'Lato';
-  font-style: italic;
-  font-weight: 400;
-  src: local('Lato Italic'), local('Lato-Italic'), url(https://fonts.gstatic.com/s/lato/v15/S6u8w4BMUTPHjxsAUi-qNiXg7eU0.woff2) format('woff2');
-  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); /* 自适应列数 */
+  gap: 12px;             /* 照片间距 */
 }
-/* latin */
-@font-face {
-  font-family: 'Lato';
-  font-style: italic;
-  font-weight: 400;
-  src: local('Lato Italic'), local('Lato-Italic'), url(https://fonts.gstatic.com/s/lato/v15/S6u8w4BMUTPHjxsAXC-qNiXg7Q.woff2) format('woff2');
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-}
-/* latin-ext */
-@font-face {
-  font-family: 'Lato';
-  font-style: italic;
-  font-weight: 700;
-  src: local('Lato Bold Italic'), local('Lato-BoldItalic'), url(https://fonts.gstatic.com/s/lato/v15/S6u_w4BMUTPHjxsI5wq_FQftx9897sxZ.woff2) format('woff2');
-  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
-}
-/* latin */
-@font-face {
-  font-family: 'Lato';
-  font-style: italic;
-  font-weight: 700;
-  src: local('Lato Bold Italic'), local('Lato-BoldItalic'), url(https://fonts.gstatic.com/s/lato/v15/S6u_w4BMUTPHjxsI5wq_Gwftx9897g.woff2) format('woff2');
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-}
-/* latin-ext */
-@font-face {
-  font-family: 'Lato';
-  font-style: normal;
-  font-weight: 400;
-  src: local('Lato Regular'), local('Lato-Regular'), url(https://fonts.gstatic.com/s/lato/v15/S6uyw4BMUTPHjxAwXiWtFCfQ7A.woff2) format('woff2');
-  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
-}
-/* latin */
-@font-face {
-  font-family: 'Lato';
-  font-style: normal;
-  font-weight: 400;
-  src: local('Lato Regular'), local('Lato-Regular'), url(https://fonts.gstatic.com/s/lato/v15/S6uyw4BMUTPHjx4wXiWtFCc.woff2) format('woff2');
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-}
-/* latin-ext */
-@font-face {
-  font-family: 'Lato';
-  font-style: normal;
-  font-weight: 700;
-  src: local('Lato Bold'), local('Lato-Bold'), url(https://fonts.gstatic.com/s/lato/v15/S6u9w4BMUTPHh6UVSwaPGQ3q5d0N7w.woff2) format('woff2');
-  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
-}
-/* latin */
-@font-face {
-  font-family: 'Lato';
-  font-style: normal;
-  font-weight: 700;
-  src: local('Lato Bold'), local('Lato-Bold'), url(https://fonts.gstatic.com/s/lato/v15/S6u9w4BMUTPHh6UVSwiPGQ3q5d0.woff2) format('woff2');
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+.gallery img {
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 4 / 3;   /* 固定比例，可改为 1/1 等 */
+  object-fit: cover;     /* 居中裁剪，保持整齐 */
+  border-radius: 10px;
+  display: block;
 }
 
+
+
+.four-photos {
+  display: flex;
+  gap: 12px;        /* 照片之间的间距 */
+  max-width: 900px;
+  margin: 0 auto;
+}
+.four-photos img {
+  flex: 1;          /* 平均分三份 */
+  height: 150px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+figcaption {
+  text-align: center;
+}
+
+
+.container {
+  max-width: 950px;   /* 和正文一样的宽度 */
+  margin: 0 auto;     /* 居中 */
+  padding: 0 20px;    /* 内边距，避免文字贴边 */
+}
+
+
+.content {
+  max-width: 950px;   /* 最大宽度，比如 800px */
+  margin: 0 auto;     /* 左右自动居中 */
+  padding: 20px;      /* 内边距，避免文字贴边 */
+  line-height: 1.6;   /* 行间距，更好阅读 */
+}
+
+html {
+  scroll-behavior: smooth;  /* 点击锚点平滑滚动 */
+  font-family: Helvetica Neue, sans-serif;
+}
+
+/* 导航栏容器 */
+.navbar {
+  position: fixed;   /* 固定在顶部 */
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #fff;
+  border-bottom: 2px solid #eee;
+  overflow: hidden;
+  padding: 10px 0;
+  z-index: 1000;     /* 确保在最上层 */
+}
+
+.navbar .container {
+  padding: 0; 
+  display: flex;      /* 横向排布 */
+  justify-content: flex-end; /* 让链接平均分布 */
+  gap: 20px;
+}
+
+
+/* 按钮风格导航 */
+.nav-btn {
+  padding: 8px 8px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 500;
+  color: #777777;
+  background: #fff;
+  transition: all 0.2s ease;
+}
+
+/* 悬停效果 */
+.nav-btn:hover {
+  background: #fff; /* 主色 */
+  color: #333;
+  text-decoration: underline;
+}
+
+/* 当前选中（高亮） */
+.nav-btn.active {
+  background: #2b6aff;
+  color: white;
+}
+
+
+/* .navbar a {
+  color: #f2f2f2;
+  text-decoration: none;
+  padding: 14px 20px;
+}
+
+.navbar a:hover {
+  background-color: #ddd;
+  color: black;
+} */
+
+/* 给正文留出顶部空间，避免被导航栏挡住 */
+section {
+  padding: 20px 0;
+  margin-top: 20px;     
+  scroll-margin-top: 60px;
+}
+
+
 a {
-  color: #1772d0;
+  /* color: #196CD1; */
+  color: #2470ce;
   text-decoration: none;
 }
 
 a:focus,
-a:hover {
-  color: #f09228;
-  text-decoration: none;
-}
+a:hover,
+author:focus,
+author:hover {
+  /* color: #B908C5; */
+  text-decoration: underline;
+  }
 
 body,
 td,
 th,
-tr,
-p,
-a {
-  font-family: 'Lato', Verdana, Helvetica, sans-serif;
-  font-size: 16px
+li,
+tr{
+  font-family: "Helvetica Neue", sans-serif;
+  font-size: 16px;
+  color: #404040;
+  line-height: 1.4;
+}
+
+p{
+  font-family: "Helvetica Neue", sans-serif;
+  font-size: 16px;
+  color: #404040;
+  margin:0;
+  line-height: 1.4;
+}
+
+papertext,
+author{
+  font-family: "Helvetica Neue", sans-serif;
+  font-size: 16px;
+  color: #777777;
+  line-height: 1.4;
+}
+
+a{
+  font-family: "Helvetica Neue", sans-serif;
+  font-size: 16px;
 }
 
 strong {
-  font-family: 'Lato', Verdana, Helvetica, sans-serif;
+  font-family: "Helvetica Neue", sans-serif;
   font-size: 16px;
+  color: #333333;
 }
 
-heading {
-  font-family: 'Lato', Verdana, Helvetica, sans-serif;
-  font-size: 23px;
+heading{
+  font-family: "Helvetica Neue", sans-serif;
+  font-size: 22px;
+  color: #333333;
 }
 
+talktitle,
 papertitle {
-  font-family: 'Lato', Verdana, Helvetica, sans-serif;
+  font-family: "Helvetica Neue", sans-serif;
   font-size: 16px;
-  font-weight: 700
+  font-weight: 700;
+  color: #333333;
+  line-height: 1.4;
 }
 
 name {
-  font-family: 'Lato', Verdana, Helvetica, sans-serif;
-  font-size: 33px;
+  font-family: "Helvetica Neue", sans-serif;
+  font-size: 36px;
+  color: #333333;
+  line-height: 1.8;
 }
 
 .one {
@@ -128,4 +213,30 @@ name {
 
 span.highlight {
   background-color: #ffffd0;
+}
+
+h2{
+  font-family: "Helvetica Neue", sans-serif;
+  font-size: 20px;
+  margin:0;
+  line-height: 3;
+  color: #333333;
+}
+
+
+h3{
+  font-family: "Helvetica Neue", sans-serif;
+  font-size: 18px;
+  color: #333333;
+}
+
+h4{
+  font-family: "Helvetica Neue", sans-serif;
+  font-size: 16px;
+  margin:0;
+  color: #333333;
+}
+
+ul {
+  margin: 0;
 }
